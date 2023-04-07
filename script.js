@@ -1,4 +1,5 @@
 //Outputs the current day to the html//
+
 var today = dayjs();
 var dayWeek = today.format("[Today is] dddd");
 $("#currentDay").text(dayWeek);
@@ -37,6 +38,7 @@ var saveButton9 = document.querySelector("#btn-9");
 saveButton9.addEventListener("click", function(event) {
   event.preventDefault();
   textInputs[0] = document.querySelector("#text-9");
+  //textInputs.push(document.querySelector("#text-9"));
   localStorage.setItem("text-9", JSON.stringify(textInputs[0].value));
 });
 
@@ -104,16 +106,16 @@ saveButton17.addEventListener("click", function(event) {
   localStorage.setItem("text-17", JSON.stringify(textInputs[8].value));
 });
 
-
+console.log(textInputs[0] + " outside of function");
 
 window.addEventListener("load", function() {
   for (i=9; i < 18; i++) {
     var savedData = localStorage.getItem("text-" + i);
-    console.log(savedData);
-    console.log(textInputs[0]);
-    if (savedData) {
-      textInputs[i-9].value = JSON.parse(savedData);
-    }
+    //console.log(savedData);
+    console.log(textInputs);
+    /*if (savedData) {
+      textInputs[i-9].textContent = JSON.parse(savedData);
+  }*/
 } //cant read textInputs[], figure out whats wrong here//
 });
 });
